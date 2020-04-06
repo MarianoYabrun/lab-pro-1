@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1586183567 source:c:\users\maria\onedrive\escritorio\clase 4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clase4.h"
+
+1586183667 c:\users\maria\onedrive\escritorio\clase 4\clase4.h
+	<stdio.h>
+	<stdlib.h>
+

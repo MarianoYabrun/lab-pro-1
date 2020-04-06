@@ -1,0 +1,25 @@
+void duplicarNumero(int* p);
+
+int main()
+{
+
+  int num;
+
+    printf("ingrese numero: ");
+    scanf("%d", &num);
+
+    duplicarNumero(&num);
+
+    printf("%d", num);
+
+
+    return 0;
+}
+
+
+void duplicarNumero(int* p)
+{
+
+    *p = *p *2;
+
+}

@@ -1,0 +1,131 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int buscarNumero(int x[], int num, int tam);
+int buscarMenor(int x[], int tam);
+int sacarPromedio( int x[], int tam);
+int buscarMenor(int x[], int tam);
+
+int main()
+{
+    int numeros[]= {3,2,6,5,8};
+
+    printf(" el mayor numero es %d", buscarMayor(numeros, 5));
+    printf("\n el menor numero es %d", buscarMenor(numeros, 5));
+    printf("\n el promedio es %2.f", sacarPromedio(numeros,5));
+    return 0;
+}
+
+int buscarMayor(int x[], int tam){
+
+int mayor = x[0];
+
+for( int i=1; i<tam; i++){
+
+    if( x[i] > mayor){
+
+       mayor = x[i];
+    }
+}
+    return mayor;
+}
+
+
+
+int buscarMenor(int x[], int tam){
+
+int menor = x[0];
+
+for( int i =1; i<tam; i++){
+
+    if( x[i] < menor){
+
+       menor = x[i];
+    }
+}
+    return menor;
+}
+
+int sacarPromedio( int x[], int tam){
+
+ float promedio;
+ int acumulador = 0;
+
+ for (int i=0; i<tam; i++){
+
+    acumulador += x[i];
+ }
+promedio = (float) acumulador / tam;
+
+return promedio;
+}
+
+int buscarNumero(int x[], int num, int tam){
+
+    int posicion;
+printf(" el mayor numero es %d", buscarMayor(numeros, 5));
+for(int i=0; i < tam; i++){
+
+    if( num == x[i]){
+
+    posicion = i + 1;
+    } else {
+    posicion = -1;
+    }
+    return posicion;
+}
+}
+
+11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define TAM 5
+
+void mostrarVectorEntero(int x[], int tam);
+void ordenarMayorMenor(int x[], int tam);
+
+int main()
+{
+   int vec[]= {8,5,9,2,4};
+
+
+   mostrarVectorEntero(vec, TAM);
+
+   ordenarMayorMenor(vec, TAM);
+
+   mostrarVectorEntero(vec, TAM);
+
+    return 0;
+}
+
+void mostrarVectorEntero(int x[], int tam){
+
+for(int i = 0; i< tam; i++){
+
+    printf("%d", x[i]);
+}
+printf("\n\n");
+}
+
+
+void ordenarMayorMenor(int x[], int tam){
+
+    int aux;
+
+ for(int i=0; i< tam-1; i++){
+
+    for(int j= i+1; j<tam; j++){
+
+       if(x[i] > x[j]) {
+        aux = x[j];
+        x[j]= x[i];
+        x[i]= aux;
+       }
+    }
+ }
+}
+
+

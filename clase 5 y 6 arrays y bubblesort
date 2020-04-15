@@ -4,7 +4,7 @@
 
 int buscarNumero(int x[], int num, int tam);
 int buscarMenor(int x[], int tam);
-int sacarPromedio( int x[], int tam);
+float sacarPromedio( int x[], int tam);
 int buscarMenor(int x[], int tam);
 
 int main()
@@ -13,7 +13,7 @@ int main()
 
     printf(" el mayor numero es %d", buscarMayor(numeros, 5));
     printf("\n el menor numero es %d", buscarMenor(numeros, 5));
-    printf("\n el promedio es %2.f", sacarPromedio(numeros,5));
+    printf("\n el promedio es %.2f", sacarPromedio(numeros,5));
     return 0;
 }
 
@@ -47,7 +47,7 @@ for( int i =1; i<tam; i++){
     return menor;
 }
 
-int sacarPromedio( int x[], int tam){
+float sacarPromedio( int x[], int tam){
 
  float promedio;
  int acumulador = 0;

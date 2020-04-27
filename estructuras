@@ -1,0 +1,149 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TAM 3
+typedef struct
+{
+    int dia;
+    int mes;
+    int anio;
+
+} eFecha;
+
+typedef struct
+{
+    int id;
+    char nombre[20];
+    char sexo;
+    int edad;
+    float sueldo;
+    eFecha fechaIngreso;
+
+} eEmpleado;
+
+void mostrarEmpleado(eEmpleado x);
+void mostrarEmpleados(eEmpleado vec[], int tam);
+void ordenarEmpleados(eEmpleado vec[], int tam);
+
+
+
+
+int main()
+{
+
+    eEmpleado lista[TAM] =
+    {
+        {1234, "Jose", 'm', 23, 12300, {12,3,2018}},
+        {3291,"Juana", 'f', 31, 23400, {10,11,2015}},
+        {4455,"carlos", 'm', 34, 21800, {16,3,2017}}
+    }; //harcodeo
+
+    /* for(int i=0; i<TAM; i++) carga de empleados
+     {
+
+         printf("Ingrese ID: ");
+         fflush(stdin);
+         scanf("%d", &lista[i].id);
+
+         printf("\n Ingrese Nombre: ");
+         fflush(stdin);
+        gets(lista[i].nombre);
+
+         printf("\n Ingrese Sexo: ");
+         fflush(stdin);
+         scanf("%c", &lista[i].sexo );
+
+         printf("\n Ingrese Edad: ");
+         fflush(stdin);
+         scanf("%d",&lista[i].edad );
+
+         printf("\n Ingrese Sueldo: ");
+         fflush(stdin);
+         scanf("%f", &lista[i].sueldo );
+
+         printf("\n Ingrese Dia de ingreso: ");
+         fflush(stdin);
+         scanf("%d", &lista[i].fechaIngreso.dia );
+
+         printf("\n Ingrese Mes de ingreso: ");
+         fflush(stdin);
+         scanf("%d", &lista[i].fechaIngreso.mes );
+
+         printf("\n Ingrese Año de ingreso: ");
+         fflush(stdin);
+         scanf("%d", &lista[i].fechaIngreso.anio );
+
+     } */
+
+
+
+    /*/for(int i=0; i<TAM; i++)
+        {
+        mostrarEmpleado(lista[i]);
+        }*/
+
+
+
+    mostrarEmpleados(lista, TAM);
+
+    ordenarEmpleados(lista, TAM);
+
+    mostrarEmpleados(lista, TAM);
+
+
+    return 0;
+}
+
+void mostrarEmpleado(eEmpleado x)
+{
+
+    printf("\n\n%4d ", x.id);
+    printf(" %4s  ", x.nombre);
+    printf("  %c  ", x.sexo);
+    printf("  %d  ", x.edad);
+    printf(" %.2f   ", x.sueldo);
+    printf("%2d/ ", x.fechaIngreso.dia);
+    printf("%2d/  ", x.fechaIngreso.mes);
+    printf("%4d  \n", x.fechaIngreso.anio);
+
+}
+
+void mostrarEmpleados(eEmpleado vec[], int tam)
+{
+
+    printf("\n\n**** LISTADO DE EMPLEADOS****\n\n");
+    printf("ID  NOMBRE  SEXO  EDAD  SUELDO  FECHA DE INGRESO \n");
+
+    for(int i=0; i<TAM; i++)
+    {
+        mostrarEmpleado(vec[i]);
+    }
+
+}
+
+
+
+void ordenarEmpleados(eEmpleado vec[], int tam){
+
+    eEmpleado auxEmpleado;
+
+ for(int i=0; i<tam-1; i++)
+    {
+
+
+
+        for(int j=i+1; j<tam; j++)
+        {
+
+            if(vec[i].id > vec[j].id)
+            {eEmpleado auxEmpleado;
+
+                auxEmpleado = vec[i];
+                vec[i] = vec[j];
+                vec[j] = auxEmpleado;
+
+            }
+        }
+    }
+}
+
+

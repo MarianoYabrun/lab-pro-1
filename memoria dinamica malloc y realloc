@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int x;
+
+  int* p = (int*) malloc(sizeof(int)); // pedimos espacio en memoria dinamica = al sizeof de un entero y malloc devuelve la direc de memoria de donde reservo el espacio y casteo a entero el puntero a void que devuelve malloc.
+
+  if (p == NULL){
+    printf("No se pudo conseguir memoria\n");
+   exit(EXIT_FAILURE);
+
+  }
+  x =10;
+  *p = 10;
+
+  printf("x vale %d \n", x);
+  printf("P vale %d\n", *p);
+
+
+
+  int* vecDinamico = (int*) malloc(5* sizeof(int)); // declaracion de un vector dinamico
+  int* auxiliar = (int*) malloc(5* sizeof(int));
+  if (vecDinamico == NULL){
+    printf("No se pudo conseguir memoria \n ");
+   exit(EXIT_FAILURE);
+
+  }
+  for (int i=0; i<5;i++)
+  {
+      printf("\nIngrese un numero: ");
+      scanf("%d", vecDinamico + i); // no es necesario el & porque ya vecdinamico es una direc de memoria y despues con el +i estamos aplicando arismetica de puntero para desplazarnos en el vector.
+  }
+
+  for (int i=0; i<5;i++)
+  {
+     printf("%d \n", *(vecDinamico +i) );  // * operacion de direccion para leer el valor de la direc donde estemos parados en el for
+
+  }
+
+auxiliar = (int*) realloc(vecDinamico, 10 * sizeof(int));
+if(auxiliar != NULL){
+    vecDinamico = auxiliar;
+    printf("Se pudo conseguir lugar\n");
+}
+
+for (int i=0; i<10;i++)
+  {
+      printf("\nIngrese un numero: ");
+      scanf("%d", vecDinamico + i); // no es necesario el & porque ya vecdinamico es una direc de memoria y despues con el +i estamos aplicando arismetica de puntero para desplazarnos en el vector.
+  }
+
+  for (int i=0; i<10;i++)
+  {
+     printf("%d \n", *(vecDinamico +i) );  // * operacion de direccion para leer el valor de la direc donde estemos parados en el for
+
+  }
+  free(p);
+  free(vecDinamico);
+
+    return 0;
+}
+

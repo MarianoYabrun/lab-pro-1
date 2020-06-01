@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void saludar();
+void despedir();
+void queHago(void (*callback)(void));
+
+int main()
+{
+  void (*pFunc)(void); //puntero a funciones (linkedlist)
+
+    pFunc = saludar;
+
+    pFunc(); //llamado a la funcion por puntero que guarda la direccion de la funcion saludar
+
+   pFunc = despedir;
+
+   pFunc();
+
+   queHago(saludar);
+   queHago(despedir);
+
+    return 0;
+}
+
+void saludar()
+{
+    printf("hola \n");
+}
+
+void despedir()
+{
+    printf("chau \n");
+
+}
+
+void queHago(void (*callback)(void))
+{
+
+    callback();
+
+}
